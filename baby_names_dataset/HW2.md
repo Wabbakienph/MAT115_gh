@@ -5,36 +5,6 @@ Kien Pham
 
 Revisit the names_by_birth_year dataset.
 
-``` r
-library(tidyverse)
-```
-
-    ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-    ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
-    ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
-    ## ✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-    ## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-    ## ✔ purrr     1.0.2     
-    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-    ## ✖ dplyr::filter() masks stats::filter()
-    ## ✖ dplyr::lag()    masks stats::lag()
-    ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-
-``` r
-library(ggplot2) 
-library(readr)
-names_by_birth_year <- read_csv("names_by_birth_year.csv")
-```
-
-    ## Rows: 2085158 Columns: 4
-    ## ── Column specification ────────────────────────────────────────────────────────
-    ## Delimiter: ","
-    ## chr (2): Name, Gender
-    ## dbl (2): Year, Count
-    ## 
-    ## ℹ Use `spec()` to retrieve the full column specification for this data.
-    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-
 1.  Make a plot to show the use of Katherine as a girl name from 2000
     to 2022. Is the name Katherine getting more or less popular? You can
     also output the count to see if it matches what the graph shows.
@@ -50,7 +20,7 @@ names_by_birth_year |>
   labs(x = "Year", title = "Popularity of Katherine as a baby girl's name from 2000-2022")
 ```
 
-![](HW2_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](HW2_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 Katherine has consistently shrinked in popularity as a girl’s name over
 the span of 22 years (about 8 times less from 2000 to 2022)
@@ -71,7 +41,7 @@ names_by_birth_year |>
   labs(x = "Top 10 Names by Gender", title = "Top 10 Baby Names by gender from 2020-2022")
 ```
 
-![](HW2_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](HW2_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 For baby girls, Olivia and Emma reigned the charts for 3 years as the
 most common names. On the boys’ side, the consistent top 3 have been
