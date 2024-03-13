@@ -1,3 +1,10 @@
+---
+title: "Pipe Exercises with baby names dataset"
+author: "Kien Pham"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
 a. Find the number of names per year per gender, and arrange your output from the most recent to oldest. 
 
 ```{r}
@@ -10,7 +17,6 @@ names_by_year |>
   group_by(Year, Gender) |>
   summarize(n()) |>
   arrange(desc(Year))
-
 ```
 
 
