@@ -1,6 +1,10 @@
 9 - Case study
 ================
 
+- [1 Life spans and family sizes](#1-life-spans-and-family-sizes)
+- [2 GDP](#2-gdp)
+- [CONCLUSION (by me)](#conclusion-by-me)
+
 In this chapter, we will be looking at the `gapminder` dataset from the
 `dslabs` package.
 
@@ -27,11 +31,11 @@ by the continent.
 gapminder |>
   filter(year == 1960) |>
   ggplot(aes(x = fertility, y = life_expectancy, label = country, color = continent)) + # label is a var so PUT IN AES
-  geom_point(alpha=.2) + #transparency of text
-  geom_text(size = 1.25, vjust =-1) # add countries name - need label
+  geom_point( alpha=.2) + #transparency of text
+  geom_text(size = 1, vjust =-1) # add countries name - need label 
 ```
 
-![](CaseStudy_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](CaseStudy_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 ### b. 1960 -\> 1980 -\> 2010
 
@@ -39,8 +43,8 @@ In 1960, “the West versus developing world” view was grounded in some
 reality. Is this still the case 20 years later? 50 years later?
 
 Make a panel of plots that show the relationship between life expectancy
-and fertility in 1960, 1980, and 2010.Separate the plot by both year and
-continent.
+and fertility in 1960, 1980, and 2010. Separate the plot by both year
+and continent.
 
 ``` r
 gapminder |>
@@ -50,7 +54,7 @@ gapminder |>
   facet_grid(continent~year)
 ```
 
-![](CaseStudy_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](CaseStudy_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ### c. West v.s. Developing
 
@@ -75,12 +79,10 @@ gapminder |>
   filter(year %in% c(1960,1980,2010)) |>
   ggplot(aes(x = fertility, y = life_expectancy, color = group)) +
   geom_point() +
-  facet_grid(group~year)+
-  theme(strip.text = element_text(
-  size = 7))
+  facet_grid(group~year)
 ```
 
-![](CaseStudy_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](CaseStudy_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ## 2 GDP
 
@@ -113,7 +115,7 @@ gapminder |>
   scale_x_continuous(breaks=seq(0,40,5))
 ```
 
-![](CaseStudy_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](CaseStudy_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 ### b. Daily_per_capita in each country in 1960
 
@@ -132,10 +134,10 @@ gapminder |>
   ggplot(aes(x=daily_per_capita, y=country)) +
   geom_col()+
   facet_wrap(~group, scales = "free_y") +
-  theme(axis.text.y = element_text(size = 5.25))
+  theme(axis.text.y = element_text(size = 5))
 ```
 
-![](CaseStudy_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](CaseStudy_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ### c. Daily_per_capita in 1960 in each group
 
@@ -154,7 +156,7 @@ gapminder |>
   labs(y ="", title = "Daily_per_capita for each group")
 ```
 
-![](CaseStudy_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](CaseStudy_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 ### d. Daily_per_capita from 1960 -\> 1980 -\> 2010 in each region
 
@@ -171,14 +173,23 @@ gapminder |>
     y = NULL)
 ```
 
-![](CaseStudy_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](CaseStudy_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ## CONCLUSION (by me)
 
 1.  The data in 1c does support the inversely proportionate relationship
-    between fertility rate and life expetancy: groups that moved toward
+    between fertility rate and life expectancy: groups that moved toward
     lower birth rate over time witnessed longer life spans on average.
-    However, what the data did not show is countries in the West still
-    leading in longevity and family size in 2010. Indeed, back in 1960,
+    However, what the data did not show is that the “developing world”
+    were still living shorter lives and in “larger families” in 2010.
+    Indeed, back in 1960, countries in the West were mostly aggregated
+    in the low fertility - high lifespan region with only 2 outliers,
+    while it was not the case for the rest of the world. In 2010, the
+    trend seemed to be “less birth - more life” everywhere with
+    countries Latin America and East Asia mostly concentrated in the low
+    fertility - high lifespan region. <br> **Side comment:** The writer
+    of the prompts seems to assume fertility indicates family size,
+    which can be not entirely accurate.
 
-2.  
+2.  The global wealth gap DID become much wider from 1960 - 2010
+    according to the stretched-over boxplots in 2d.
