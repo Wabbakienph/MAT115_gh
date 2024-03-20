@@ -192,4 +192,4 @@ gapminder |>
     which can be not entirely accurate.
 
 2.  The global wealth gap DID become much wider from 1960 - 2010
-    according to the stretched-over boxplots in 2d.
+    according to the stretched-over boxplots in 2d. Western and East Asian countries witnessed a significant contrast between poor and rich in 2010 with the 25th percentile being super far away from the 75th percentile.
